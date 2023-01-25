@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<!-- custom css file link  -->
+    <link rel="stylesheet" href="../static/css/footer.css">
+	<!-- custom css file link  -->
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+	 <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css" />
+	 <link rel="stylesheet" href="../static/css/all.min.css"/>
+	 <link href="../static/css/animate.css" rel="stylesheet" type="text/css" media="all">
+	 <link href="../static/css/ken-burns.css" rel="stylesheet" type="text/css" media="all" />
+	 <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+     
+     <script src="../static/js/jquery-2.1.1.min.js"></script>
+     <script src="../static/js/bootstrap.min.js"></script>
+	
+	 <script>
+	  $(function(){
+		if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+		  $('#ios-notice').removeClass('hidden');
+		  $('.parallax-container').height( $(window).height() * 0.5 | 0 );
+		} else {
+		  $(window).resize(function(){
+			var parallaxHeight =400;//Math.max($(window).height() * 0.7, 200) | 0;
+			$('.parallax-container').height(parallaxHeight);
+		  }).trigger('resize');
+		}
+	  });
+	</script>
+	 <script src="../static/js/parallax.min.js"></script>
+   <title>{% block title %}Home{% endblock %}</title>
+	
+  </head>
+  <body>
+	
+    <section id="header">
+     <div class="container">
+      <div class="row">
+         <nav class="navbar navbar">
+             <div class="navbar-header page-scroll">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div class="flag"><img src=../static/logo/teast2.png></div>
+    
+            <h3><span class="p_1">A</span><span class="p_1">R</span><span class="p_2">T</span><span class="p_3">H</span><span class="p_4">E</span><span class="p_5">N</span><span class="p_6">A</span><span class="p_6">E</span><span class="p_7">U</span><span class="p_8">M</span></h3>
+            <p class="canvas"style="color:rgb(206, 185, 67)">The world is your canvas</p>
+            </div>
+           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					 <ul class="nav navbar-nav navbar-right">
+				   {% if user.is_authenticated %}
+				   <li class="active_H"><a id="home" href="/">Home</a></li>
+				   <li class="active_H"><a id="logout" href="/logout"></a></li>
+				   {% else %}
+           <li class="active_H" id="login" href="/login">Login</a>
+           <li class="active_H" id="signUp" href="/sign-up">Sign Up</a>
+           {% endif %}
+				   <li class="dropdown">
+					 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><ion-icon class="drop"name="reorder-four-outline"></ion-icon></a>				
+					 <ul class="dropdown-menu" role="menu" style="display: none;">
+							
+					 {% if user.is_authenticated %}
+				   <li class="active_H"><a id="home" href="/">Home</a></li>
+				   <li class="active_H"><a id="logout" href="/logout"></a></li>
+				   {% else %}
+           <li class="active_H" id="login" href="/login">Login</a>
+           <li class="active_H" id="signUp" href="/sign-up">Sign Up</a>
+           {% endif %}
+						  </ul>                
+						</li>
+                      </ul>
+           </div>
+         </nav>
+         {% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+{% if category == 'error' %}
+<div class="alert alert-danger alert-dismissable fade show" role="alert" >
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% else %}
+<div class="alert alert-success alert-dismissable fade show" role="alert" >
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+      </div>
+     </div>
+    </section>
+    
+    <section id="center">
+        <div class="banner">
+        <div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
+          <!-- Wrapper-for-Slides -->
+                <div class="carousel-inner" role="listbox">  
+                    <div class="item active"><!-- First-Slide -->
+                        <img src="../static/img/5.jpg" alt="" class="img-responsive" />
+                        <div class="carousel-caption kb_caption kb_caption_right">
+                            <h3 data-animation="animated flipInX">ARTHENAEUM</h3>
+                            <h4 data-animation="animated flipInX">The world is your canvas</h4>
+                        </div>
+                    </div>  
+                    <div class="item"> <!-- Second-Slide -->
+                        <img src="../static/img/8.jpg" alt="" class="img-responsive" />
+                        <div class="carousel-caption kb_caption kb_caption_right">
+                            <h3 data-animation="animated fadeInDown">Express yourself with recognition</h3>
+                            <h4 data-animation="animated fadeInUp">It’s time to respond</h4>
+                        </div>
+                    </div> 
+                    <div class="item"><!-- Third-Slide -->
+                        <img src="../static/img/3.jpeg" alt="" class="img-responsive"/>
+                        <div class="carousel-caption kb_caption kb_caption_center">
+                            <h3 data-animation="animated fadeInLeft">ACT</h3>
+                            <h4 data-animation="animated flipInX">Help bring Arthenaeum to life</h4>
+                        </div>
+                    </div> 
+                </div> 
+               <!-- Left-Button -->
+                <a class="left carousel-control kb_control_left" href="#kb" role="button" data-slide="prev">
+            <span class="fa-solid fa-angles-right" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a> 
+                <!-- Right-Button -->
+                <a class="right carousel-control kb_control_right" href="#kb" role="button" data-slide="next">
+                    <span class="fa fa-angle-right kb_icons" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a> 
+            </div>
+        <script src="../static/js/custom.js"></script>
+      </div>
+    
+      </section>
+      
+    <section class="midb" id="sunrise" >
+     <div class="container">
+      <div class="row">
+       <div class="col-sm-12">
+        <div class="sunrise_1">
+       <h1 class="text-center">ARTHENAEUM</h1>
+       <hr class="hr_2">
+       <p class="text-center">Arthenaeum 1000+ certified artists working hard every day to arthenaeum to life.</p>
+      </div>
+       </div>
+       <div class="col-sm-12">
+        <div class="col-sm-3">
+       <div class="sunrise_2">
+       <div class="hi-icon-wrap hi-icon-effect-4 hi-icon-effect-4b">
+              <img src="">
+      </div>
+          <div class="sunrise_3">
+            
+         <h2 class="text-center"><a href="#"><div class="ion"><h1><ion-icon name="globe-outline"></ion-icon></h1></div>A home</a></h2>
+         <p class="text-center">A welcoming place to all artists</br>Become part of the masterpiece</p>
+        </div>
+       </div>
+      </div>
+      <div class="col-sm-3">
+       <div class="sunrise_2">
+       <div class="hi-icon-wrap hi-icon-effect-4 hi-icon-effect-4b">
+                      </div>
+        </div>
+        <div class="sunrise_3">
+          
+         <h2 class="text-center"><a href="#"><div class="iconoplast"><h1><ion-icon name="accessibility-outline"></ion-icon></h1></div>Expression</a></h2>
+         <p class="text-center">Open up your mind to the world</br>Make it your canvas</p>
+        </div>
+      </div>
+      <div class="col-sm-3">
+       <div class="sunrise_2">
+       <div class="hi-icon-wrap hi-icon-effect-4 hi-icon-effect-4b">
+                    </div>
+          </div>
+          <div class="sunrise_3">
+         <h2 class="text-center"><a href="#"><div class="iconoplast"><h1><ion-icon name="people-outline"></ion-icon></h1></div>JOIN US</a></h2>
+         <p class="text-center">Enter a world of color </br>Become a masterpiece</p>
+        </div>
+      </div>
+      <div class="col-sm-3">
+       <div class="sunrise_2">
+       <div class="hi-icon-wrap hi-icon-effect-4 hi-icon-effect-4b">
+                      </div>
+          </div>
+          <div class="sunrise_3">
+    
+         <h2 class="text-center"><a href="#"><div class="iconoplast"><h1><ion-icon name="color-palette-outline"></ion-icon></h1></div>CREATE</a></h2>
+         <p class="text-center">Create and help grow Arthenaeum</p>
+        </div>
+      </div>
+       </div>
+      </div>
+     </div>
+    <br>
+    </section>
+    
+    <section class="mid" id="middle">
+    <div class="container">
+     <div class="row">
+      <div class="col-sm-12">
+      <div class="col-sm-6">
+       <div class="middle_1">
+       <div class="animation_1">
+        <div class="grid">
+              <figure class="effect-apollo">
+                <img src="../static/logo/ARTHENAEUML.png" alt="../static/logo/ARTHENEUM3.png"/>
+                <figcaption>
+                <a href="#">View more</a>						</figcaption>			
+          </figure>
+        </div>
+       </div>
+      </div>
+      </div>
+      <div class="col-sm-6">
+       <div class="middle_2">
+        <h2>Appreciate true art</h2>
+      <hr class="hr_2">
+      <div class="txtco"><span>Urging the the world’s 1.4 million artists and all people with appreciation of true art and artistic expression to join us and create our own masterpiece</a>
+        <br>Art crackles in a space beneath words,and as such, it is a hugely valuable interface: a starting point for communication.	</a></p>
+       </div>
+      </div>
+     </div>
+     </div>
+    </div>
+    </section>
+    
+    
+    
+    
+    <section id="footer_bottom">
+     <div class="container">
+      <div class="row">
+       <div class="col-sm-12">
+         
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="footer">
+    
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
+    
+        <div class="links">
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">contact</a>
+            <a href="login.html">login</a>
+        </div>
+    
+        <div class="credit">created by <span>okuboisaac</span> | all rights reserved</div>
+    
+      <div class="footer_bottom text-center clearfix">
+        <p>© 2021 Copyright, ARTHENAEUM</p>
+        </div>
+    
+    </section>
+    
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function(event) {
+        event.preventDefault();
+        $('body').toggleClass('navbar-more-show');
+        if ($('body').hasClass('navbar-more-show'))	{
+          $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+        }else{
+          $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+        }
+        return false;
+      });
+    });
+      </script>
+      
+    <script type="text/javascript">
+          $(function(){
+        $(".dropdown").hover(            
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+                    $(this).toggleClass('open');
+                    $('b', this).toggleClass("caret caret-up");                
+                },
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+                    $(this).toggleClass('open');
+                    $('b', this).toggleClass("caret caret-up");                
+                });
+        });
+        {% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+{% if category == 'error' %}
+<div class="alert alert-danger alert-dismissable fade show" role="alert" >
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% else %}
+<div class="alert alert-success alert-dismissable fade show" role="alert" >
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+
+    <div class="container">
+      {%block content%}
+      {% endblock %}
+    </div>
+      </script>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='index.js') }}"
+    ></script>
+  </body>
+</html>

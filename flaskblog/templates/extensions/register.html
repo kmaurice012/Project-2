@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     {% if title %}
+        <title>Arthenaeum - {{ title }}</title>
+    {% else %}
+        <title>Arthenaeum</title>
+    {% endif %}
+
+  
+    
+	<!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<!-- custom css file link  -->
+    <link rel="stylesheet" href="../static/css/footer.css">
+	<!-- custom css file link  -->
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+	 <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css" />
+	 <link rel="stylesheet" href="../static/css/all.min.css"/>
+	 <link href="../static/css/animate.css" rel="stylesheet" type="text/css" media="all">
+	 <link href="../static/css/ken-burns.css" rel="stylesheet" type="text/css" media="all" />
+	 <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+     
+     <script src="../static/js/jquery-2.1.1.min.js"></script>
+     <script src="../static/js/bootstrap.min.js"></script>
+	
+	 <script>
+	  $(function(){
+		if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+		  $('#ios-notice').removeClass('hidden');
+		  $('.parallax-container').height( $(window).height() * 0.5 | 0 );
+		} else {
+		  $(window).resize(function(){
+			var parallaxHeight =400;//Math.max($(window).height() * 0.7, 200) | 0;
+			$('.parallax-container').height(parallaxHeight);
+		  }).trigger('resize');
+		}
+	  });
+	</script>
+	 <script src="../static/js/parallax.min.js"></script>
+	
+  </head>
+<body>
+	
+<section id="header">
+ <div class="container">
+  <div class="row">
+     <nav class="navbar navbar">
+	       <div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="flag"><img src=../static/logo/teast2.png></div>
+
+					<h3><span class="p_1">A</span><span class="p_1">R</span><span class="p_2">T</span><span class="p_3">H</span><span class="p_4">E</span><span class="p_5">N</span><span class="p_6">A</span><span class="p_6">E</span><span class="p_7">U</span><span class="p_8">M</span></h3>
+				<p class="canvas"style="color:rgb(206, 185, 67)">The world is your canvas</p>
+				</div>
+           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						
+						<li class="active_H"><a href="{{ url_for('home') }}">Home</a></li>
+						
+
+              {% if current_user.is_authenticated %}
+                <li class="active_H"><a href="{{ url_for('new_post') }}">New Post</a></li>
+                <li class="active_H"><a href="{{ url_for('account') }}">Account</a></li>
+                <li class="active_H"><a href="{{ url_for('logout') }}">Logout</a></li>
+              {% else %}
+                <li class="active_H"><a href="{{ url_for('login') }}">Login</a></li>
+                
+                
+              {% endif %}
+                        
+						
+					    <li class="dropdown">
+						  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><ion-icon class="drop"name="reorder-four-outline"></ion-icon></a>				
+						  <ul class="dropdown-menu" role="menu" style="display: none;">
+							
+							<li><a href="{{ url_for('login') }}">Login</a></li>
+							
+						  </ul>                
+						</li>
+                      </ul>
+		   </div>
+     </nav>
+  </div>
+ </div>
+</section>
+
+ <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Our Sidebar</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Latest Posts</li>
+                <li class="list-group-item list-group-item-light">Announcements</li>
+                <li class="list-group-item list-group-item-light">Calendars</li>
+                <li class="list-group-item list-group-item-light">etc</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+<section id="footer_bottom">
+ <div class="container">
+  <div class="row">
+   <div class="col-sm-12">
+     
+   </div>
+  </div>
+ </div>
+</section>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+    $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function(event) {
+		event.preventDefault();
+		$('body').toggleClass('navbar-more-show');
+		if ($('body').hasClass('navbar-more-show'))	{
+			$('a[href="#navbar-more-show"]').closest('li').addClass('active');
+		}else{
+			$('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+		}
+		return false;
+	});
+});
+	</script>
+	
+<script type="text/javascript">
+	    $(function(){
+    $(".dropdown").hover(            
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            },
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            });
+    });
+    
+	</script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+
